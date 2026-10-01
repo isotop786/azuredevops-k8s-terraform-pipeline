@@ -8,12 +8,27 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+# pipeline > stages > Jobs > Tasks(Steps)
 
-steps:
-- script: echo Hello, Azure DevOps!
-  displayName: 'Run a one-line script'
+jobs:
+- job: Job1
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  steps:
+  - script: echo Hello, Azure DevOps Job1!
+    displayName: 'Run a one-line script'
+
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
+
+- job: Job2
+
+  steps:
+  - script: echo Hello, This is the job2!
+    displayName: 'Run a one-line script'
+
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
