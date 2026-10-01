@@ -35,12 +35,3 @@ stages:
       steps:
       - bash: echo  ProductionJob
 
-
-# steps:
-# - script: echo Job1 Step1 !
-#   displayName: 'Run a one-line script'
-
-# - script: |
-#     echo Add other tasks to build, test, and deploy your project.
-#     echo See https://aka.ms/yaml
-#   displayName: 'Run a multi-line script'
