@@ -9,9 +9,27 @@ strategy:
       operatingSystem: "ubuntu-latest"
     mac:
       operatingSystem: "macos-latest"
-
 pool:
   vmImage: $(operatingSystem)
+stages:
+- stage: Build
+  jobs:
+  - job: Build-Job
+    steps: 
+    - bash: echo "Build job on process"
+
+- stage: Dev-Deploy
+  jobs:
+  - job: DevDeploy-Job
+    steps: 
+    - bash: echo "DevDeploy job on process"
+  - deployment: DevDeployJob
+    environment: dev
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo deploy to Dev
 
 steps:
 - script: echo Running on $(operatingSystem)!
