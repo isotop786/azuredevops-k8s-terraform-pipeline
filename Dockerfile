@@ -1,10 +1,10 @@
-FROM maven:3.8.2-jdk-8-slim AS build
-WORKDIR /home/app
-COPY . /home/app
+FROM maven:3.8.8-eclipse-temurin-8 AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
-FROM openjdk:8-jdk-alpine
+FROM eclipse-temurin:8-jre-alpine
 VOLUME /tmp
 EXPOSE 8000
 COPY --from=build /home/app/target/*.jar app.jar
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+ENTRYPOINT ["java","-jar","/app.jar"]
