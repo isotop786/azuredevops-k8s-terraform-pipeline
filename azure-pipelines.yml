@@ -26,4 +26,4 @@ stages:
         repository: '110053917/currency-exchange-devops'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: '$(tag) latest'
+        tags: '$(tag)'
