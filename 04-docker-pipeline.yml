@@ -22,7 +22,7 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-        containerRegistry: 'az-docker-conn'
+        containerRegistry: 'docker-conn'
         repository: '110053917/currency-exchange-devops'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
