@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'docker-conn'
-        repository: '110053917/currency-exchange-devops'
+        repository: 'marufuli707/currency-exchange-devops'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: '$(tag)'
